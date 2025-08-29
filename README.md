@@ -1,3 +1,34 @@
+# Projeto-TDD (Desafio da DIO)
+
+Este projeto é uma versão atualizada de um desafio proposto pela DIO (Digital Innovation One), originalmente focado em TDD com FastAPI. A estrutura base foi mantida, e novas funcionalidades foram implementadas como parte do desafio final, incluindo tratamento de exceções, atualização de dados e filtros por preço.
+
+✅ Funcionalidades Implementadas
+
+Este projeto foi desenvolvido com base em TDD e inclui as seguintes funcionalidades:
+
+🔨 Create
+
+-Tratamento de exceção na criação de produtos.
+
+-Retorno de mensagem amigável ao usuário em caso de erro na inserção.
+
+🔄 Update
+
+-Verificação da existência do produto antes de atualizar.
+
+-Retorno de exceção NotFoundException quando o produto não é encontrado.
+
+-Atualização automática do campo updated_at com o horário atual.
+
+💰 Filtros
+
+-Cadastro de produtos com preços variados.
+
+-Endpoint para filtrar produtos com base no preço:
+
+-Exemplo: GET /products/filter?min_price=5000&max_price=8000
+
+
 # TDD Project
 
 ## O que é TDD?
