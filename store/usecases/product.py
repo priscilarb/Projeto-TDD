@@ -6,7 +6,7 @@ from store.db.mongo import db_client
 from store.models.product import ProductModel
 from store.schemas.product import ProductIn, ProductOut, ProductUpdate, ProductUpdateOut
 from store.core.exceptions import NotFoundException
-
+from datetime import datetime
 
 class ProductUsecase:
     def __init__(self) -> None:
@@ -55,6 +55,13 @@ class ProductUsecase:
         result = await self.collection.delete_one({"id": id})
 
         return True if result.deleted_count > 0 else False
+
+    async def filter_by_price(self, min_price: float, max_price: float) -> List[ProductOut]:
+        cursor = self.collection.find({
+            "price": {"$gt": min_price, "$lt": max_price}
+        })
+        return [ProductOut(**item) async for item in cursor]
+
 
 
 product_usecase = ProductUsecase()
